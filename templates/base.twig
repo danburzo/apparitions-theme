@@ -1,0 +1,36 @@
+{% block html_head_container %}
+	{% include 'components/html-header.twig' %}
+	{% block head %}
+		<!-- empty your head -->
+	{% endblock %}
+	</head>
+{% endblock %}
+
+	<body class="{{body_class}}">
+		<header class="header">
+			{% block header %}
+				{% include 'components/footer.twig' %}
+			{% endblock %}
+		</header>
+
+		<section role="main">
+			{% if title %}
+				<h1>{{title}}</h1>
+			{% endif %}
+			<div class="wrapper {{sidebar_class}}">
+				{% block content %}
+					<!-- Content goes here -->
+				{% endblock %}
+			</div>
+			{% if sidebar %}
+				<aside class="layout-sidebar">
+					{{sidebar}}
+				</aside>
+			{% endif %}
+		</section>
+
+		{% block footer %}
+			{% include 'components/footer.twig' %}
+		{% endblock %}
+	</body>
+</html>
