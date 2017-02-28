@@ -1,5 +1,132 @@
 /*
  * Theme Name: Geta Brătescu - Apparitions
  * Description: Timber-powered theme for apparitions.ro
+ * Text Domain: apparitions
  * Author: Dan Burzo
 */
+
+body {
+	font-family: "ebony", sans-serif;
+	font-size: 90%;
+	line-height: 1.7;
+	min-height: 100vh;
+	max-width: 70em;
+	padding: 2em;
+	margin: 0 auto;
+	box-sizing: border-box;
+	font-weight: 300;
+}
+
+b, strong {
+	font-weight: 700;
+}
+
+i, em {
+	font-style: italic;
+}
+
+.main-content {
+	font-family: "maiola", serif;
+}
+
+a {
+	color: #777;
+	text-decoration: none;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+header {
+	padding-top: 2.5em;
+}
+
+/* 	
+	Component: Navbar
+	--------------------------------------
+*/
+
+.navbar {
+}
+
+.navbar ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.navbar__item {}
+
+/*
+	Component: Language switcher
+	--------------------------------------
+*/
+
+.lang {
+	list-style: none;
+	margin: 1.5em 0;
+	padding: 0;
+	font-size: 0.8em;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+
+.lang__item {
+	display: inline-block;
+}
+
+.lang__item:after {
+	content: ' /';
+
+}
+
+.lang__item:last-child:after {
+	content: '';
+}
+
+/*
+	Component: Hero
+*/
+
+.hero {
+	padding: 2em 0;
+	border-bottom: 1px solid #999;
+	margin-bottom: 2em;
+}
+
+.hero__title {
+	font-size: 2.25em;
+	line-height: 1.12;
+	margin: 0 0 1em;
+}
+
+.hero__title-item {
+	display: inline-block;
+	margin-right: 0.75em;
+	color: #000;
+}
+
+.hero__title-item--secondary {
+	color: #888;
+}
+
+.hero--prominent {
+	border-bottom: none;
+}
+
+.hero--prominent .hero__title {
+	font-size: 3em;
+	line-height: 1.12;
+	letter-spacing: -0.018em;
+}
+
+.hero--prominent .hero__title-item {
+	display: block;
+}
+
+.biennale-logo {
+	height: 12em;
+	margin-left: 2em;
+}

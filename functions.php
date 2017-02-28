@@ -37,8 +37,17 @@ class ApparitionsSite extends TimberSite {
 	}
 
 	function add_to_context( $context ) {
+		
 		$context['menu'] = new TimberMenu();
 		$context['site'] = $this;
+
+		$context['is_home'] = is_home() || is_front_page();
+
+		// add the WPML languages
+		if (function_exists('icl_get_languages')) {
+			$context['languages'] = icl_get_languages('skip_missing=0&orderby=code');
+		}
+
 		return $context;
 	}
 

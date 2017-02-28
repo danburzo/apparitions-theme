@@ -1,0 +1,7 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+	{% if not posts.length %}
+		{{__('Nu există știri încă', 'apparitions')}}
+	{% endif %}
+{% endblock %}

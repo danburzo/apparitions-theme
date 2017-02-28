@@ -1,10 +1,11 @@
 {% extends "base.twig" %}
 
+{% block title %}
+{% endblock title %}
+
 {% block content %}
 	<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-		{% if not is_home %}
-			<h1>{{post.title}}</h1>
-		{% endif %}
+		<h1>{{post.title}}</h1>
 		{{post.content}}
 	</article>
 {% endblock %}

@@ -6,31 +6,58 @@
 	</head>
 {% endblock %}
 
-	<body class="{{body_class}}">
-		<header class="header">
+	<body class="{{body_class}} layout layout--hbox">
+
+		<header class="layout__item layout__item--fixed-size layout__item--width-medium">
 			{% block header %}
-				{% include 'components/footer.twig' %}
+				{% include 'components/header.twig' %}
 			{% endblock %}
 		</header>
 
-		<section role="main">
-			{% if title %}
-				<h1>{{title}}</h1>
-			{% endif %}
-			<div class="wrapper {{sidebar_class}}">
-				{% block content %}
-					<!-- Content goes here -->
+		<div class='layout__item layout__item--grow layout layout--vbox'>
+
+			<div class='layout__item layout__item--fixed-size layout layout--hbox'>
+				<div class='hero {{ is_home ? "hero--prominent" : "" }} layout__item layout__item--grow'>
+					<h1 class='hero__title'>
+						<a href='{{site.link}}'>
+							<span class='hero__title-item hero__title-item--primary'>Geta Brătescu</span> 
+							<span class='hero__title-item hero__title-item--secondary'>Apparitions</span>
+						</a>
+					</h1>
+					<p class='hero__desc'>
+						{{__('Participarea României la cea de-a 57-a ediție', 'apparitions')}}<br/>
+						{{__('a Expoziției Internaționale de Artă — La Biennale di Venezia 2017', 'apparitions')}}
+					</p>
+				</div>
+				<div class='layout__item layout__item--fixed-size'>
+					<img class='biennale-logo' src='{{site.theme.link}}/static/svg/logos/biennale.svg'/>
+				</div>
+			</div>
+
+			<section role="main" class='layout__item layout__item--grow'>
+				{% block title %}
+					{% if title %}
+						<h1>{{title}}</h1>
+					{% endif %}
+				{% endblock title %}
+				<div class="main-content {{sidebar_class}}">
+					{% block content %}
+						<!-- Content goes here -->
+					{% endblock %}
+				</div>
+				{% if sidebar %}
+					<aside class="layout-sidebar">
+						{{sidebar}}
+					</aside>
+				{% endif %}
+			</section>
+
+			<div class='layout__item layout__item--fixed-size layout__item--height-small'>
+				{% block footer %}
+					{% include 'components/footer.twig' %}
 				{% endblock %}
 			</div>
-			{% if sidebar %}
-				<aside class="layout-sidebar">
-					{{sidebar}}
-				</aside>
-			{% endif %}
-		</section>
 
-		{% block footer %}
-			{% include 'components/footer.twig' %}
-		{% endblock %}
+		</div>
 	</body>
 </html>

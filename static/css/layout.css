@@ -1,0 +1,146 @@
+/* ---------------------------------------------------------------------------------- */
+
+/* 
+	FLEXBOX LAYOUT
+	--------------
+
+	Author: Dan Burzo
+	
+	We're using the BEM naming methodology (http://getbem.com/naming/).
+
+	Block: 
+		.layout
+	Elements: 
+		.layout__item
+	Modifiers:
+		.layout__item--fixed-size
+		.layout__item--grow,
+		et cetera
+
+*/
+
+/* 
+	The basic building block is a layout container that will distribute 
+	its child elements either horizontally or vertically. 
+*/
+.layout {
+	display: flex;
+}
+
+/* 
+	The children of a layout container may be laid either horizontally
+	or vertically, depending on the `flex-direction` property. 
+
+	Here we create two modifiers for the .layout box
+*/
+
+.layout--hbox {
+	flex-direction: row;
+}
+
+.layout--vbox {
+	flex-direction: column;
+}
+
+/* 
+	A layout that stretches all child elements to the same size.
+
+	This is useful for things like sidebars for which we might want 
+	to have a background that stretches all the way down.
+	(Even if the sidebar only has a little content)
+*/
+.layout--stretch {
+	align-items: stretch;
+}
+
+/*
+	The alternative to stretching the child elements is to align 
+	them in some way. In some situations, such as in headers that 
+	contain logos and navigation menus, you may want to align all
+	children centrally.
+*/
+.layout--middle {
+	align-items: center;
+}
+
+/*
+	In situation where we need children to 'float' at opposite directions of the layout,
+	we can use the `justify-content` property to push them to the edges.
+*/
+.layout--spread {
+	justify-content: space-between;
+}
+
+.layout--grid {
+	justify-content: space-between;
+	margin: 1.5em -0.75em;
+}
+
+.layout--grid .layout__item {
+	flex: 1;
+	margin: 0 0.75em;
+}
+
+/*
+	This is the only element we need in a layout block.
+	By default, a `layout__item` does not need to do anything special.
+	It has `flex: 0 1 auto` which is a shorthand for:
+		- flex-grow: 0
+		- flex-shrink: 1
+		- flex-basis: auto
+
+	We do however set `overflow: hidden` on it, so that we can enable
+	scrolling on items that need it (see modifiers below).
+*/
+.layout__item {
+	/*overflow: hidden;*/
+}
+
+.layout__item > :first-child {
+	margin-top: 0;
+}
+
+.layout__item > :last-child {
+	margin-bottom: 0;
+}
+
+/*
+	A layout item that grows to fill the available space.
+*/
+.layout__item--grow  {
+	flex-grow: 1;
+}
+
+/*
+	A layout item that shows a scrollbar in case its content overflows
+*/
+.layout__item--scroll {
+	overflow: auto;
+}
+
+/*
+	A layout item that maintains a fixed size.
+	(Either width or height, depending on how the items are laid out)
+
+	This is accomplished by setting both `flex-grow` and `flex-shrink` to 0,
+	in effect disabling the flexibility on the item.
+*/
+.layout__item--fixed-size {
+	flex-grow: 0;
+	flex-shrink: 0;
+}
+
+/*
+	For items with a fixed size, we control that size by setting the 
+	`flex-basis` property rather than the `width` or `height` property.
+
+	Below, we define a couple of sizes that are used throughout the layout.
+*/
+
+.layout__item--width-medium {
+	flex-basis: 12em;
+}
+
+.layout__item--height-small {
+	flex-basis: 3em;
+}
