@@ -25,6 +25,7 @@ class ApparitionsSite extends TimberSite {
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action( 'init', array( $this, 'register_nav_menus' ) );
 		parent::__construct();
 	}
 
@@ -36,9 +37,17 @@ class ApparitionsSite extends TimberSite {
 		//this is where you can register custom taxonomies
 	}
 
+	function register_nav_menus() {
+		register_nav_menu('main-menu',__( 'Main Menu' ));
+		register_nav_menu('footer-menu',__( 'Footer Menu' ));
+	}
+
 	function add_to_context( $context ) {
 		
-		$context['menu'] = new TimberMenu();
+		$context['menu'] = new TimberMenu('main-menu');
+		$context['footer_menu'] = new TimberMenu('footer-menu');
+		$context['pagination'] = Timber::get_pagination();
+		
 		$context['site'] = $this;
 
 		$context['is_home'] = is_home() || is_front_page();

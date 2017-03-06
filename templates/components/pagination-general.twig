@@ -1,0 +1,31 @@
+{% if pagination.prev or pagination.next or pagination.pages | length %}
+<div class="pagination layout layout--hbox layout--spread">
+    {% if pagination.prev %}
+        <a 
+            href="{{pagination.prev.link}}" 
+            class="pagination__item layout__item layout__item--fixed-size"
+        >
+            &larr; {{__("Precedenta", "apparitions")}}
+        </a>
+    {% endif %}
+    <ul class="pagination__list layout__item layout__item--grow">
+        {% for page in pagination.pages %}
+            <li>
+                {% if page.link %}
+                    <a href="{{page.link}}" class="pagination__item {{page.class}}">{{page.title}}</a>
+                {% else %}
+                    <span class="pagination__item {{page.class}}">{{page.title}}</span>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    {% if pagination.next %}
+        <a 
+            href="{{pagination.next.link}}" 
+            class="pagination__item layout__item layout__item--fixed-size"
+        >
+            {{__("Următoarea", "apparitions")}} &rarr;
+        </a>
+    {% endif %}
+</div>
+{% endif %}

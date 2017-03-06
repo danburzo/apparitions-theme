@@ -59,6 +59,11 @@ header {
 
 .navbar__item {}
 
+.navbar--inline .navbar__item {
+	display: inline-block;
+	margin-right: 1em;
+}
+
 /*
 	Component: Language switcher
 	--------------------------------------
@@ -129,4 +134,29 @@ header {
 .biennale-logo {
 	height: 12em;
 	margin-left: 2em;
+}
+
+/*
+	Component: Pagination
+*/
+
+.pagination {
+	font-family: "ebony", sans-serif;
+	padding: 1.5em 0;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	margin: 1.5em 0;
+	text-transform: uppercase;
+}
+
+.pagination__item {}
+
+.pagination ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.pagination li {
+	display: inline-block;
 }

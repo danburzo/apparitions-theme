@@ -1,0 +1,12 @@
+{% set prev = post.prev('category') %}
+{% set next = post.next('category') %}
+
+{% 
+	include 'components/pagination-general.twig' with {
+		"pagination": {
+			"prev": prev,
+			"next": next,
+			"pages": []
+		}
+	}
+%}

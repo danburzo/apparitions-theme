@@ -1,5 +1,11 @@
 <footer class="footer">
-	{# Copyright {{"now"|date('Y')}} #}
+  <nav class='navbar navbar--inline'>
+	{% 
+		include 'components/menu.twig' with {
+			'menu': footer_menu.get_items
+		} 
+	%}
+  </nav>
 </footer>
 
 <!-- Google Analytics -->

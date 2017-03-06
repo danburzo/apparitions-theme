@@ -1,0 +1,12 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+		{% if not is_home %}
+			<h1>{{post.title}}</h1>
+		{% endif %}
+		{{post.content}}
+	</article>
+
+	{% include 'components/pagination-post.twig' %}
+{% endblock %}
