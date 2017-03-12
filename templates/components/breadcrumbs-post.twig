@@ -1,0 +1,7 @@
+<div class='breadcrumbs'>
+	{% set categories = post.terms('category') %}
+	{% if categories | length %}
+		<a href='{{categories[0].link}}'>{{categories[0].name}}</a> /
+	{% endif %}
+	{{post.date | date }}
+</div>

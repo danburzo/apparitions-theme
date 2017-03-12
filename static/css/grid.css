@@ -25,7 +25,7 @@
 
 /* Defining the gutter width */
 .grid__column {
-	margin-right: 1rem;
+	margin-right: 1.75rem;
 }
 
 .grid__column:last-child {

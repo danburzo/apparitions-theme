@@ -14,7 +14,7 @@
 			<div class='grid__column grid__column--span-3' data-readmore-parent>
 				{{post.content}}
 			</div>
-			{% if page_template and not page_template.wide_page %}
+			{% if not page_template or not page_template.wide_page %}
 				<div class='grid__column'><!-- dummy --></div>
 			{% endif %}
 		</div>

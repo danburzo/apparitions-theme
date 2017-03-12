@@ -10,8 +10,8 @@ body {
 	font-size: 90%;
 	line-height: 1.7;
 	min-height: 100vh;
-	max-width: 70em;
-	padding: 2em;
+	max-width: 72em;
+	padding: 4em 1em 2em;
 	margin: 0 auto;
 	box-sizing: border-box;
 	font-weight: 300;
@@ -30,8 +30,12 @@ i, em {
 }
 
 a {
-	color: #777;
+	color: #808080;
 	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 img {
@@ -40,7 +44,6 @@ img {
 }
 
 header {
-	padding-top: 2.5em;
 }
 
 hr {
@@ -48,6 +51,11 @@ hr {
 	border: none;
 	background: #ccc;
 	margin: 1.5em 0;
+}
+
+figure {
+	padding: 0;
+	margin: 0;
 }
 
 figure img {
@@ -72,9 +80,29 @@ figure img {
 
 .navbar__itemlist .navbar__itemlist {
 	padding-left: 1em;
+	display: none;
+}
+
+.current-menu-ancestor .navbar__itemlist {
+	display: block;
 }
 
 .navbar__item {}
+
+.navbar__item a {
+	color: inherit;
+}
+
+/* 
+	Account for wordpress menu item classes
+	to highlight the currently selected menu item
+*/
+
+.navbar__item.current-menu-item a,
+.navbar__item a:hover {
+	color: #808080;
+	text-decoration: none;
+}
 
 .navbar--inline .navbar__item {
 	display: inline-block;
@@ -113,9 +141,7 @@ figure img {
 */
 
 .hero {
-	padding: 2em 0;
-	border-bottom: 1px solid #999;
-	/*margin-bottom: 2em;*/
+	border-bottom: 1px solid #b0b0b0;
 }
 
 .hero__title {
@@ -134,6 +160,10 @@ figure img {
 	color: #888;
 }
 
+.hero__desc {
+	margin-bottom: 2.4em;
+}
+
 .hero--prominent {
 	border-bottom: none;
 }
@@ -142,14 +172,20 @@ figure img {
 	font-size: 3em;
 	line-height: 1.12;
 	letter-spacing: -0.018em;
+	margin-bottom: 0;
 }
 
 .hero--prominent .hero__title-item {
 	display: block;
 }
 
+.hero--prominent .hero__desc {
+	margin-bottom: 0;
+}
+
 .biennale-logo {
 	width: 100%;
+	margin-top: -11%; /* lion head above the line */
 }
 
 /*
@@ -191,7 +227,7 @@ figure img {
 .featured__image {}
 
 .featured__credits {
-	color: #999;
+	color: #808080;
 	font-size: 0.8em;
 }
 
@@ -224,10 +260,35 @@ figure img {
 	margin-top: 1.5em;
 }
 
+.featured--floating {
+	float: right;
+	width: 66.66%;
+	margin-right: -33.33%;
+	margin-top: 0;
+	left: 1.75rem;
+	padding-left: 1.75rem;
+	margin-left: -1.75rem;
+}
+
+.featured--compact {
+	margin-top: 0;
+}
+
 /* Component: Actual content */
 
 .actual-content {
-	font-size: 1.3em;
+	font-size: 1.4em;
+	line-height: 1.27;
+	margin-bottom: 2em;
+}
+
+.actual-content .featured {
+	font-size: 0.7em;
+	line-height: 1.77;
+}
+
+.actual-content p:first-child {
+	margin-top: 0;
 }
 
 /* Component: Breadcrumbs */
@@ -235,14 +296,28 @@ figure img {
 .breadcrumbs {
 	font-family: 'ebony', sans-serif;
 	text-transform: uppercase;
-	letter-spacing: 0.03em;
+	letter-spacing: 0.15em;
 	font-weight: 300;
-	font-size: 0.9em;
+	font-size: 0.8em;
+	color: #808080;
+	margin: 1.5em 0;
+}
+
+.breadcrumbs a {
+	color: inherit;
+}
+
+.breadcrumbs a:hover {
+	text-decoration: underline;
 }
 
 /* 
 	Component: Shortcode - [readmore]
 */
+
+.shortcode-readmore {
+	margin: 1.5em 0;
+}
 
 .shortcode-readmore__wrapper {
 	display: block;
@@ -258,4 +333,72 @@ figure img {
 
 .shortcode-readmore:after {
 	content: ']';
+}
+
+/* 
+	Component: Member
+*/
+
+.member {}
+
+.member__name {
+	font-size: 1em;
+	font-weight: normal;
+	margin: 1.5em 0 0;
+}
+.member__role {
+	font-size: 1em;
+	font-weight: normal;
+	font-style: italic;
+	margin: 0 0 1.5em;
+}
+
+.member__bio {}
+
+.member__bio > :first-child {
+	margin-top: 0;
+}
+
+.member__image {}
+
+/*
+	Component: Masthead
+*/
+
+.masthead {
+	font-family: 'ebony', sans-serif;
+}
+
+.masthead__title {
+	font-size: 1.25em;
+	margin: 1em 0;
+}
+
+.masthead__title a {
+	color: inherit;
+}
+
+.masthead--tease {
+	font-size: 0.8em;
+}
+
+.masthead--tease .masthead__title {
+	margin-top: 0;
+}
+
+/*
+	Component: Tease post
+*/
+
+.tease--post {
+	margin: 1.5em 0;
+}
+
+.tease__date {
+	font-family: 'ebony', sans-serif;
+	font-size: 0.6em;
+	color: #808080; 
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	margin-bottom: 2em;
 }

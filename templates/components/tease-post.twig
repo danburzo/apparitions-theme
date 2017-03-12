@@ -1,17 +1,26 @@
 {% extends "components/tease.twig" %}
 
 {% block content %}
-	<div class='grid'>
-		<div class='grid__column grid__column--span-3'>
-			<h2>
-				<a href="{{post.link}}">{{post.title}}</a>
-			</h2>
-			<p>{{ post.get_preview(50) }}</p>
+	<div class='tease--post'>
+		<div class='tease__date'>
+			{{ post.date | date }}
 		</div>
-		<div class='grid__column'>
-			{% if post.thumbnail.src %}
-				<img src="{{post.thumbnail.src}}" />
-			{% endif %}
+		<div class='grid'>
+			<div class='grid__column grid__column--span-2'>
+				{% 
+					include 'components/masthead-post.twig' with {
+						'tease': true
+					} 
+				%}
+				<div>
+					{{ post.get_preview(50) }}
+				</div>
+			</div>
+			<div class='grid__column'>
+				{% if post.get_field('image') %}
+					{% include 'components/featured-image-compact.twig' %}
+				{% endif %}
+			</div>
 		</div>
 	</div>
 {% endblock %}

@@ -12,7 +12,8 @@
 		}
 	%}
 	
-	<div class='actual-content'>
+	<div class='grid actual-content'>
+		<div class='grid__column grid__column--span-3' data-readmore-parent>
 		{% if posts | length > 0 %}
 			{% for post in posts %}
 				{% include 'components/tease-post.twig' %}
@@ -20,6 +21,8 @@
 		{% else %}
 			{{__('Nu există știri încă', 'apparitions')}}
 		{% endif %}
+		</div>
+		<div class='grid__column'><!-- dummy --></div>
 	</div>
 
 	{% include 'components/pagination-general.twig' %}

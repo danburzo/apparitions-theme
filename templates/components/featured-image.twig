@@ -1,11 +1,18 @@
-{% if is_home %}
-<figure class='featured featured--alternate'>
+{% if is_home or floating %}
+<figure class='featured featured--alternate {% if floating %}featured--floating{% endif %}'>
 	<img 
 		class='featured__image' 
 		src='{{ TimberImage(post.get_field('image')).src | resize(1600) }}'
 	/>
 	<div class='grid featured__credits-wrapper'>
-		<div class='grid__column grid__column--span-3'><!-- dummy --></div>
+		<div class='
+			grid__column 
+			{% if floating %}
+				
+			{% else %}
+				grid__column--span-3
+			{% endif %}
+		'><!-- dummy --></div>
 		<figcaption class='grid__column featured__credits'>
 			{{ post.get_field('description') }}
 		</figcaption>
