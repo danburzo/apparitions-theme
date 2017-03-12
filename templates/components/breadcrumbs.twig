@@ -1,0 +1,6 @@
+<h1 class='breadcrumbs'>
+	{% if post.parent %}
+	<a href='{{post.parent.link}}'>{{post.parent.title}}</a> /
+	{% endif %}
+	{{post.title}}
+</h1>

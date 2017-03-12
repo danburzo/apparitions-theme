@@ -3,8 +3,20 @@
 {% block content %}
 	<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
 		{% if not is_home %}
-			<h1>{{post.title}}</h1>
+			{% include 'components/breadcrumbs.twig' %}
 		{% endif %}
-		{{post.content}}
+
+		{% if post.get_field('image') %}
+			{% include 'components/featured-image.twig' %}
+		{% endif %}
+
+		<div class='grid actual-content'>
+			<div class='grid__column grid__column--span-3' data-readmore-parent>
+				{{post.content}}
+			</div>
+			{% if page_template and not page_template.wide_page %}
+				<div class='grid__column'><!-- dummy --></div>
+			{% endif %}
+		</div>
 	</article>
 {% endblock %}

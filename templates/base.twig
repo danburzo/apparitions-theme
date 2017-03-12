@@ -6,53 +6,50 @@
 	</head>
 {% endblock %}
 
-	<body class="{{body_class}} layout layout--hbox">
+	<body class="{{body_class}} grid">
 
-		<header class="layout__item layout__item--fixed-size layout__item--width-medium">
+		<header class="grid__column">
 			{% block header %}
 				{% include 'components/header.twig' %}
 			{% endblock %}
 		</header>
 
-		<div class='layout__item layout__item--grow layout layout--vbox'>
+		<div class='grid__column grid__column--span-4'>
 
-			<div class='layout__item layout__item--fixed-size layout layout--hbox'>
-				<div class='hero {{ is_home ? "hero--prominent" : "" }} layout__item layout__item--grow'>
+			<div class='grid'>
+				<div class='hero {{ is_home ? "hero--prominent" : "" }} layout__item layout__item--grow grid__column grid__column--span-3'>
 					<h1 class='hero__title'>
 						<a href='{{site.link}}'>
 							<span class='hero__title-item hero__title-item--primary'>Geta Brătescu</span> 
-							<span class='hero__title-item hero__title-item--secondary'>Apparitions</span>
+							<span class='hero__title-item hero__title-item--secondary'>
+								{{__("Apariții", 'apparitions')}}
+							</span>
 						</a>
 					</h1>
 					<p class='hero__desc'>
 						{{__('Participarea României la cea de-a 57-a ediție', 'apparitions')}}<br/>
-						{{__('a Expoziției Internaționale de Artă — La Biennale di Venezia 2017', 'apparitions')}}
+						{{__('a Expoziției Internaționale de Artă — La Biennale di Venezia', 'apparitions')}}
 					</p>
 				</div>
-				<div class='layout__item layout__item--fixed-size'>
+				<div class='grid__column'>
 					<img class='biennale-logo' src='{{site.theme.link}}/static/svg/logos/biennale.svg'/>
 				</div>
 			</div>
 
-			<section role="main" class='layout__item layout__item--grow'>
+			<section role="main">
 				{% block title %}
 					{% if title %}
 						<h1>{{title}}</h1>
 					{% endif %}
 				{% endblock title %}
-				<div class="main-content {{sidebar_class}}">
+				<div class="main-content">
 					{% block content %}
 						<!-- Content goes here -->
 					{% endblock %}
 				</div>
-				{% if sidebar %}
-					<aside class="layout-sidebar">
-						{{sidebar}}
-					</aside>
-				{% endif %}
 			</section>
 
-			<div class='layout__item layout__item--fixed-size layout__item--height-small'>
+			<div>
 				{% block footer %}
 					{% include 'components/footer.twig' %}
 				{% endblock %}

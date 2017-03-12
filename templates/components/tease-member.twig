@@ -1,0 +1,19 @@
+{% extends "components/tease.twig" %}
+
+{% block content %}
+	<div class='grid'>
+		<div class='grid__column grid__column--span-3'>
+			<h2>{{ member.get_field('name') }}</h2>
+			<h3>{{ member.get_field('role') }}</h3>
+			<div>
+				{{ member.content }}
+			</div>
+		</div>
+		<div class='grid__column'>
+			{% set image = member.get_field('image') %}
+			{% if image %}
+				<img src="{{ TimberImage(image).src | resize(800) }}" />
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}

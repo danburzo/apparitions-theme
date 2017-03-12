@@ -1,0 +1,26 @@
+{% if is_home %}
+<figure class='featured featured--alternate'>
+	<img 
+		class='featured__image' 
+		src='{{ TimberImage(post.get_field('image')).src | resize(1600) }}'
+	/>
+	<div class='grid featured__credits-wrapper'>
+		<div class='grid__column grid__column--span-3'><!-- dummy --></div>
+		<figcaption class='grid__column featured__credits'>
+			{{ post.get_field('description') }}
+		</figcaption>
+	</div>
+</figure>
+{% else %}
+<figure class='featured grid grid--bottom'>
+	<div class='grid__column grid__column--span-3'>
+		<img 
+			class='featured__image' 
+			src='{{ TimberImage(post.get_field('image')).src | resize(1600) }}'
+		/>
+	</div>
+	<figcaption class='grid__column featured__credits'>
+		{{ post.get_field('description') }}
+	</figcaption>
+</figure>
+{% endif %}

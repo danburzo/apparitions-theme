@@ -1,0 +1,33 @@
+.grid {
+	/*height: 100%;*/
+	display: flex;
+}
+
+.grid--bottom {
+	align-items: flex-end;
+}
+
+.grid__column {
+	flex: 1;
+}
+
+.grid__column--span-2 {
+	flex-grow: 2;
+}
+
+.grid__column--span-3 {
+	flex-grow: 3;
+}
+
+.grid__column--span-4 {
+	flex-grow: 4;
+}
+
+/* Defining the gutter width */
+.grid__column {
+	margin-right: 1rem;
+}
+
+.grid__column:last-child {
+	margin-right: 0;
+}

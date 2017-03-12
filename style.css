@@ -43,6 +43,19 @@ header {
 	padding-top: 2.5em;
 }
 
+hr {
+	height: 1px;
+	border: none;
+	background: #ccc;
+	margin: 1.5em 0;
+}
+
+figure img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
 /* 	
 	Component: Navbar
 	--------------------------------------
@@ -51,10 +64,14 @@ header {
 .navbar {
 }
 
-.navbar ul {
+.navbar__itemlist {
 	list-style: none;
 	padding: 0;
 	margin: 0;
+}
+
+.navbar__itemlist .navbar__itemlist {
+	padding-left: 1em;
 }
 
 .navbar__item {}
@@ -98,7 +115,7 @@ header {
 .hero {
 	padding: 2em 0;
 	border-bottom: 1px solid #999;
-	margin-bottom: 2em;
+	/*margin-bottom: 2em;*/
 }
 
 .hero__title {
@@ -132,8 +149,7 @@ header {
 }
 
 .biennale-logo {
-	height: 12em;
-	margin-left: 2em;
+	width: 100%;
 }
 
 /*
@@ -159,4 +175,87 @@ header {
 
 .pagination li {
 	display: inline-block;
+}
+
+/*
+	Component: featured image
+	-----------------------------------
+*/
+
+.featured {
+	padding: 0;
+	margin: 1em 0;
+	font-family: 'ebony', sans-serif;
+}
+
+.featured__image {}
+
+.featured__credits {
+	color: #999;
+	font-size: 0.8em;
+}
+
+.featured__credits p:first-child {
+	margin-top: 0;
+}
+
+.featured__credits p:last-child {
+	margin-bottom: 0;
+}
+
+.featured--alternate {
+	position: relative;
+}
+
+.featured--alternate .featured__image {}
+
+.featured--alternate .featured__credits-wrapper {
+	/* position under image */
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;}
+
+.featured--alternate .featured__credits {
+	position: relative;
+	top: 100%;
+	height: 0;
+	margin-top: 1.5em;
+}
+
+/* Component: Actual content */
+
+.actual-content {
+	font-size: 1.3em;
+}
+
+/* Component: Breadcrumbs */
+
+.breadcrumbs {
+	font-family: 'ebony', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+	font-weight: 300;
+	font-size: 0.9em;
+}
+
+/* 
+	Component: Shortcode - [readmore]
+*/
+
+.shortcode-readmore__wrapper {
+	display: block;
+}
+
+.shortcode-readmore__wrapper--hidden {
+	display: none;
+}
+
+.shortcode-readmore:before {
+	content: '[';
+}
+
+.shortcode-readmore:after {
+	content: ']';
 }

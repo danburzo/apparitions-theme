@@ -1,13 +1,26 @@
-{% extends 'base.twig' %}
+{% extends "base.twig" %}
+
+{% block title %}
+{% endblock %}
 
 {% block content %}
-	{% if posts | length > 0 %}
-		{% for post in posts %}
-			{% include 'components/tease-post.twig' %}
-		{% endfor %}
-	{% else %}
-		{{__('Nu există știri încă', 'apparitions')}}
-	{% endif %}
+	{% 
+		include 'components/breadcrumbs.twig' with {
+			'post': {
+				'title': title
+			}
+		}
+	%}
+	
+	<div class='actual-content'>
+		{% if posts | length > 0 %}
+			{% for post in posts %}
+				{% include 'components/tease-post.twig' %}
+			{% endfor %}
+		{% else %}
+			{{__('Nu există știri încă', 'apparitions')}}
+		{% endif %}
+	</div>
 
 	{% include 'components/pagination-general.twig' %}
 {% endblock %}
