@@ -6,7 +6,7 @@
 	</head>
 {% endblock %}
 
-	<body class="{{body_class}} grid">
+	<body class="{{body_class}} grid grid--collapsable">
 
 		<header class="grid__column">
 			{% block header %}
@@ -15,12 +15,15 @@
 		</header>
 
 		<div class='grid__column grid__column--span-4'>
-			<div class='grid'>
+			<div class='grid grid--reverse grid--collapsable'>
+				
+
 				<div class='grid__column grid__column--span-3'>
 					{% include 'components/hero.twig' %}
 				</div>
+
 				<div class='grid__column'>
-					<img class='biennale-logo' src='{{site.theme.link}}/static/svg/logos/biennale.svg'/>
+					<img class='biennale-logo' width='108' height='100' src='{{site.theme.link}}/static/svg/logos/biennale.svg'/>
 				</div>
 			</div>
 

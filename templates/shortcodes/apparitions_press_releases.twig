@@ -1,0 +1,33 @@
+<div class='media-section'>
+	<h2 class='media-section__title'>{{__("Comunicate de presă", "apparitions")}}</h2>
+	{% if press_releases %}
+		{% for row in press_releases | batch(3) %}
+			<div class='grid'>
+				{% for release in row %}
+					<div class='grid__column'>
+						{% 
+							include 'components/tease-media-item.twig' with {
+								'mediaitem': {
+									'title': release.title,
+									'attached_file': release.get_field('attached_file'),
+									'thumb': release.get_field('thumb')
+								},
+								'mediaitem_date': release.date
+							}
+						%}
+					</div>
+				{% endfor %}
+
+				{# Spacing hack, to revisit someday #}
+
+				{% if row | length < 3 %}
+					<div class='grid__column'><!-- dummy --></div>
+				{% endif %}
+
+				{% if row | length < 2 %}
+					<div class='grid__column'><!-- dummy --></div>
+				{% endif %}
+			</div>
+		{% endfor %}
+	{% endif %}
+</div>

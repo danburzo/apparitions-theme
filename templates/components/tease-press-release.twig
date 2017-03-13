@@ -1,0 +1,23 @@
+{% extends "components/tease.twig" %}
+
+{% set file_url = release.get_field('attached_file').url %}
+{% block content %}
+	<div class='mediaitem'>
+		<div class='mediaitem__date text--onum'>
+			{{ release.date | date('d.m.y') }}
+		</div>
+		<h2 class='mediaitem__title'>
+			<a href='{{file_url}}'>{{ release.title }}</a>
+		</h2>
+
+		{% set thumb = release.get_field('thumb') %}
+		{% if thumb %}
+		<figure class="mediaitem__thumb">
+			<a href='{{file_url}}'>
+				<img src="{{ TimberImage(thumb).src | resize(800) }}" />
+			</a>
+		</figure>
+		{% endif %}
+
+	</div>
+{% endblock %}

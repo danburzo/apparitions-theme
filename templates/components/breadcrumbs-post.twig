@@ -3,5 +3,5 @@
 	{% if categories | length %}
 		<a href='{{categories[0].link}}'>{{categories[0].name}}</a> /
 	{% endif %}
-	{{post.date | date }}
+	<span class='text--onum'>{{post.date | date("d.m.y") }}</span>
 </div>

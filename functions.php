@@ -35,6 +35,7 @@ class ApparitionsSite extends TimberSite {
 
 	function register_post_types() {
 		$this->register_post_type_member();
+		$this->register_post_type_press_release();
 	}
 
 	function register_taxonomies() {
@@ -49,6 +50,7 @@ class ApparitionsSite extends TimberSite {
 	function register_shortcodes() {
 		add_shortcode('readmore', array($this, 'shortcode_readmore'));
 		add_shortcode('apparitions_members', array($this, 'shortcode_apparitions_members'));
+		add_shortcode('apparitions_press_releases', array($this, 'shortcode_apparitions_press_releases'));
 	}
 
 	function add_to_context( $context ) {
@@ -73,6 +75,7 @@ class ApparitionsSite extends TimberSite {
 		/* this is where you can add your own functions to twig */
 		$twig->addExtension( new Twig_Extension_StringLoader() );
 		$twig->addFilter(new Twig_SimpleFilter('has_shortcode', array($this, 'filter_has_shortcode')));
+		$twig->addFilter('fit', new Twig_SimpleFilter('fit', array($this, 'fit_image')));
 		return $twig;
 	}
 
@@ -101,11 +104,32 @@ class ApparitionsSite extends TimberSite {
 				'custom-fields', 
 				'page-attributes'
 			),
-			'taxonomies' => array(
-				'categorie_proiect'
-			),
 			'public' => true,
 			'has_archive' => false,
+			'hierarchical' => false
+		));
+	}
+
+	function register_post_type_press_release() {
+		register_post_type('press_release', array(
+			'labels' => array(
+				'name' => 'Press Releases',
+				'singular_name' => 'Press Release'
+			),
+			'description' => 'Press Releases / Comunicate de presă',
+			'rewrite' => array(
+				'slug' => 'press-releases'
+			),
+			'supports' => array(
+				'title', 
+				'editor', 
+				'thumbnail', 
+				'excerpt', 
+				'custom-fields', 
+				'page-attributes'
+			),
+			'public' => true,
+			'has_archive' => true,
 			'hierarchical' => false
 		));
 	}
@@ -155,6 +179,41 @@ class ApparitionsSite extends TimberSite {
 
 		// todo could do here 'shortcodes/' . $tag . '.twig', but ignore missing
 		return Timber::compile('shortcodes/apparitions_members.twig', $context);
+	}
+
+	function shortcode_apparitions_press_releases($atts = [], $content = '', $tag = '') {
+		$context = array();
+
+		// convert atts to lowercase
+		$atts = array_change_key_case((array)$atts, CASE_LOWER);
+		
+		// default attributes
+		$pr_atts = shortcode_atts([
+             'count' => 6
+        ], $atts, $tag);
+
+		$context['press_releases'] = Timber::get_posts(array(
+			'post_type' => 'press_release',
+			'orderby' => 'date',
+			'order' => 'DESC',
+			'posts_per_page' => $pr_atts['count']
+		));
+
+		return Timber::compile('shortcodes/apparitions_press_releases.twig', $context);
+	}
+
+
+	function fit_image($src, $w, $h = 0) {
+		// Instantiate TimberImage from $src so we have access to dimensions
+		$img = new TimberImage($src);
+
+		// Call proportional resize on width or height, depending on how the image's
+		// aspect ratio compares to the target box aspect ratio
+		if ($h == 0 || $img->aspect() > $w / $h) {
+			return Timber\ImageHelper::resize($src, $w);
+		} else {
+			return Timber\ImageHelper::resize($src, 0, $h);
+		}
 	}
 }
 

@@ -1,0 +1,14 @@
+<div class='partners'>
+{% for partner_category in post.get_field('partner_categories') %}
+	<div class='partner-category'>
+		<h3 class='partner-category__title'>{{ partner_category.title }}</h3>
+		{% for partner in partner_category.partners %}
+			{% include 'components/tease-partner.twig' %}
+		{% endfor %}
+	</div>
+{% endfor %}
+</div>
+
+<div class='about-footer'>
+	{{ post.get_field('disclaimer') }}
+</div>

@@ -1,0 +1,12 @@
+<div class='gallery'>
+	<div class='gallery__inner'>
+	{% for item in post.get_field('gallery') %}
+		<figure class='gallery__item'>
+			<img class='gallery__item-image' src='{{TimberImage(item.image).src}}'/>
+			<figcaption class='gallery__item-caption'>
+				{{ item.credits }}
+			</figcaption>
+		</figure>
+	{% endfor %}
+	</div>
+</div>

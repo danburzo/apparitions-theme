@@ -2,8 +2,8 @@
 
 {% block content %}
 	<div class='tease--post'>
-		<div class='tease__date'>
-			{{ post.date | date }}
+		<div class='tease__date text--onum'>
+			{{ post.date | date('d.m.y') }}
 		</div>
 		<div class='grid'>
 			<div class='grid__column grid__column--span-2'>
@@ -13,7 +13,7 @@
 					} 
 				%}
 				<div>
-					{{ post.get_preview(50) }}
+					{{ post.get_preview(50, false, '') }}
 				</div>
 			</div>
 			<div class='grid__column'>

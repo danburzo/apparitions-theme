@@ -1,14 +1,14 @@
 {% if pagination.prev or pagination.next or pagination.pages | length %}
-<div class="pagination layout layout--hbox layout--spread">
+<div class="pagination text--onum">
     {% if pagination.prev %}
         <a 
             href="{{pagination.prev.link}}" 
-            class="pagination__item layout__item layout__item--fixed-size"
+            class="pagination__item"
         >
             &larr; {{__("Precedenta", "apparitions")}}
         </a>
     {% endif %}
-    <ul class="pagination__list layout__item layout__item--grow">
+    <ul class="pagination__list">
         {% for page in pagination.pages %}
             <li>
                 {% if page.link %}
@@ -22,7 +22,7 @@
     {% if pagination.next %}
         <a 
             href="{{pagination.next.link}}" 
-            class="pagination__item layout__item layout__item--fixed-size"
+            class="pagination__item"
         >
             {{__("Următoarea", "apparitions")}} &rarr;
         </a>

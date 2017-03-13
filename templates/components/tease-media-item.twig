@@ -1,0 +1,18 @@
+<div class='mediaitem'>
+
+	{% if mediaitem_date %}
+	<div class='mediaitem__date text--onum'>{{ mediaitem_date | date('d.m.y') }}</div>
+	{% endif %}
+
+	<h2 class='mediaitem__title'>
+		<a href='{{mediaitem.attached_file.url}}' target="_blank">{{ mediaitem.title }}</a>
+	</h2>
+
+	{% if mediaitem.thumb %}
+	<figure class="mediaitem__title">
+		<a href='{{mediaitem.attached_file.url}}' target="_blank">
+			<img src="{{ TimberImage(mediaitem.thumb).src | resize(450, 600) }}" />
+		</a>
+	</figure>
+	{% endif %}
+</div>

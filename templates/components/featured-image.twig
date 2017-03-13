@@ -13,7 +13,7 @@
 				grid__column--span-3
 			{% endif %}
 		'><!-- dummy --></div>
-		<figcaption class='grid__column featured__credits'>
+		<figcaption class='grid__column featured__credits text--onum'>
 			{{ post.get_field('description') }}
 		</figcaption>
 	</div>
@@ -26,7 +26,7 @@
 			src='{{ TimberImage(post.get_field('image')).src | resize(1600) }}'
 		/>
 	</div>
-	<figcaption class='grid__column featured__credits'>
+	<figcaption class='grid__column featured__credits text--onum'>
 		{{ post.get_field('description') }}
 	</figcaption>
 </figure>

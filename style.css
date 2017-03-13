@@ -78,6 +78,11 @@ figure img {
 	margin: 0;
 }
 
+/* 
+	Only show the submenu for 
+	the currently selected menu item 
+*/
+
 .navbar__itemlist .navbar__itemlist {
 	padding-left: 1em;
 	display: none;
@@ -144,6 +149,10 @@ figure img {
 	border-bottom: 1px solid #b0b0b0;
 }
 
+.hero a:hover {
+	text-decoration: none;
+}
+
 .hero__title {
 	font-size: 2.25em;
 	line-height: 1.12;
@@ -185,6 +194,7 @@ figure img {
 
 .biennale-logo {
 	width: 100%;
+	height: auto;
 	margin-top: -11%; /* lion head above the line */
 }
 
@@ -265,9 +275,11 @@ figure img {
 	width: 66.66%;
 	margin-right: -33.33%;
 	margin-top: 0;
+
+	/* gutter size */
 	left: 1.75rem;
 	padding-left: 1.75rem;
-	margin-left: -1.75rem;
+	margin-left: -1.75rem; 
 }
 
 .featured--compact {
@@ -401,4 +413,113 @@ figure img {
 	text-transform: uppercase;
 	letter-spacing: 0.15em;
 	margin-bottom: 2em;
+}
+
+/*
+	Component: Footer
+*/
+
+.footer {}
+
+.footer__inner {
+	border-top: 1px solid #b0b0b0;
+	padding: 1.5em 0;
+}
+
+.footer .navbar {
+	color: #808080;
+}
+
+/*
+	Global: opentype old-style numerals
+*/
+
+.text--onum {
+	font-variant-numeric: oldstyle-nums;
+    -moz-font-feature-settings: "onum";
+    -webkit-font-feature-settings: "onum";
+    font-feature-settings: "onum";
+}
+
+/* 
+	Component: media section
+*/
+
+.media-section {
+	padding-bottom: 1.5em;
+	margin-bottom: 1.5em;
+	border-bottom: 1px solid #c0c0c0;
+}
+
+.media-section:last-child {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+.media-section__title {
+	font-family: 'ebony', sans-serif;
+	font-size: 1em;
+}
+
+.mediaitem {}
+
+.mediaitem__title {
+	font-family: 'ebony', sans-serif;
+	font-size: 1em;
+}
+
+.mediaitem__title a {
+	color: inherit;
+}
+
+/*
+	Component: Partner category / Partner
+*/
+
+.partner-category {}
+
+.partner-category__title {
+	font-size: 1.5em;
+}
+
+.partner {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 2em 2em 0;
+	text-align: center;
+}
+
+.partner__link {
+	color: inherit;
+}
+
+.partner__image {
+	/*width: 10em;*/
+	max-height: 6em;
+	max-width: 10em;
+/*	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;*/
+}
+
+.partner__text {
+	font-size: 1.1em;
+	line-height: 1.2em;
+	font-family: 'ebony', sans-serif;
+	text-align: left;
+	display: inline-block;
+	max-width: 8em;
+}
+
+/*
+	Component: About Footer
+*/
+
+.about-footer {
+	font-family: 'ebony', sans-serif;
+	font-size: 0.8em;
+	color: #808080;
+	padding: 1.5em 0;
+	margin-top: 1.5em;
+	border-top: 1px solid #d0d0d0;
 }

@@ -1,0 +1,28 @@
+{% for section in post.get_field('media_section') %}
+	<div class='media-section'>
+		{% if section.title %}
+		<h2 class='media-section__title'>{{section.title}}</h2>
+		{% endif %}
+
+		{% for row in section.files | batch(3) %}
+			<div class='grid'>
+				{% for mediaitem in row %}
+					<div class='grid__column'>
+						{% include 'components/tease-media-item.twig' %}
+					</div>
+				{% endfor %}
+
+				{# Spacing hack, to revisit someday #}
+
+				{% if row | length < 3 %}
+					<div class='grid__column'><!-- dummy --></div>
+				{% endif %}
+
+				{% if row | length < 2 %}
+					<div class='grid__column'><!-- dummy --></div>
+				{% endif %}
+				
+			</div>
+		{% endfor %}
+	</div>
+{% endfor %}

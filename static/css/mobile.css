@@ -1,0 +1,32 @@
+@media (max-width: 40em) {
+	/* display the topmost grid as block */
+
+	.grid__column {
+		margin-right: 1.25rem;
+	}
+
+	.grid--collapsable {
+		display: block;
+		padding: 1em;
+	}
+
+	.grid--collapsable > .grid__column {
+		margin-right: 0;
+	}
+
+	.navbar > .navbar__itemlist > .navbar__item {
+		display: inline-block;
+		margin-right: 1em;
+		vertical-align: top;
+	}
+
+	.navbar__itemlist .navbar__itemlist {
+		padding-left: 0;
+	}
+
+	.biennale-logo {
+		max-width: 8em;
+		max-height: 8em;
+		margin: 1.5em 0;
+	}
+}
