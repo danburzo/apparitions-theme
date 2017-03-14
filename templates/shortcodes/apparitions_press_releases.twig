@@ -5,6 +5,7 @@
 			<div class='grid'>
 				{% for release in row %}
 					<div class='grid__column'>
+						<div class='grid__box'>
 						{% 
 							include 'components/tease-media-item.twig' with {
 								'mediaitem': {
@@ -15,6 +16,7 @@
 								'mediaitem_date': release.date
 							}
 						%}
+						</div>
 					</div>
 				{% endfor %}
 

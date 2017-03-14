@@ -259,12 +259,12 @@ figure img {
 	/* position under image */
 	position: absolute;
 	top: 0;
-	left: 0;
+	left: 1.75rem;
 	right: 0;
 	bottom: 0;}
 
 .featured--alternate .featured__credits {
-	position: relative;
+	position: absolute;
 	top: 100%;
 	height: 0;
 	margin-top: 1.5em;
@@ -277,13 +277,17 @@ figure img {
 	margin-top: 0;
 
 	/* gutter size */
-	left: 1.75rem;
+	left: 0.58rem; /* 1/3 of gutter */
 	padding-left: 1.75rem;
-	margin-left: -1.75rem; 
+	/*margin-left: -1.75rem; */
 }
 
 .featured--compact {
 	margin-top: 0;
+}
+
+.featured .grid__box {
+	height: 100%;
 }
 
 /* Component: Actual content */
@@ -522,4 +526,40 @@ figure img {
 	padding: 1.5em 0;
 	margin-top: 1.5em;
 	border-top: 1px solid #d0d0d0;
+}
+
+/*
+	Component: Gallery
+*/
+
+.gallery {
+	position: relative;
+}
+
+.gallery__nav {
+	position: absolute;
+	bottom: 2rem;
+	font-size: 3em;
+	display: none;
+}
+
+.gallery__nav--prev {
+	left: -1rem;
+	transform: translate(-100%, 0);
+}
+.gallery__nav--next {
+	right: -1rem;
+	transform: translate(100%, 0);
+}
+
+.gallery__inner {}
+
+.gallery__item {}
+
+.gallery__item-image {
+
+}
+
+.gallery__item-caption {
+	padding: 1.5em 0 0;
 }

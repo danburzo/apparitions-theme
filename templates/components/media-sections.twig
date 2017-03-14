@@ -8,7 +8,9 @@
 			<div class='grid'>
 				{% for mediaitem in row %}
 					<div class='grid__column'>
-						{% include 'components/tease-media-item.twig' %}
+						<div class='grid__box'>
+							{% include 'components/tease-media-item.twig' %}
+						</div>
 					</div>
 				{% endfor %}
 

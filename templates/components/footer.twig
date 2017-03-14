@@ -1,13 +1,17 @@
 <footer class="footer">
   <div class='grid'>
-    <div class='footer__inner grid__column grid__column--span-3'>
-      <nav class='navbar navbar--inline'>
-        {% 
-          include 'components/menu.twig' with {
-            'menu': footer_menu.get_items
-          } 
-        %}
-      </nav>
+    <div class='grid__column grid__column--span-3'>
+      <div class="grid__box">
+        <div class='footer__inner'>
+          <nav class='navbar navbar--inline'>
+            {% 
+              include 'components/menu.twig' with {
+                'menu': footer_menu.get_items
+              } 
+            %}
+          </nav>
+        </div>
+      </div>
     </div>
     <div class='grid__column'><!-- dummy --></div>
   </div>

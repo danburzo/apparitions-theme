@@ -7,19 +7,23 @@
 		</div>
 		<div class='grid'>
 			<div class='grid__column grid__column--span-2'>
-				{% 
-					include 'components/masthead-post.twig' with {
-						'tease': true
-					} 
-				%}
-				<div>
-					{{ post.get_preview(50, false, '') }}
+				<div class='grid__box'>
+					{% 
+						include 'components/masthead-post.twig' with {
+							'tease': true
+						} 
+					%}
+					<div>
+						{{ post.get_preview(50, false, '') }}
+					</div>
 				</div>
 			</div>
 			<div class='grid__column'>
-				{% if post.get_field('image') %}
-					{% include 'components/featured-image-compact.twig' %}
-				{% endif %}
+				<div class="grid__box">
+					{% if post.get_field('image') %}
+						{% include 'components/featured-image-compact.twig' %}
+					{% endif %}
+				</div>
 			</div>
 		</div>
 	</div>

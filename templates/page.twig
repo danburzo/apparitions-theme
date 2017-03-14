@@ -11,26 +11,37 @@
 		{% endif %}
 
 		<div class='grid grid--collapsabe actual-content'>
-			<div class='grid__column grid__column--span-3' data-readmore-parent>
-				{% if page_template and page_template.media_page %}
-					{% include 'components/media-sections.twig' %}
-				{% endif %}
+			<div class='grid__column grid__column--span-3'>
+				<div class='grid__box'>
+					{# Template part for media page #}
+					{% if page_template and page_template.media_page %}
+						{% include 'components/media-sections.twig' %}
+					{% endif %}
 
-				{{post.content}}
+					{# Template part for gallery page #}
+					{% if page_template and page_template.gallery_page %}
+						{% include 'components/gallery.twig' %}
+					{% endif %}
+
+					<div data-readmore-parent>
+						{{post.content}}
+					</div>
+				</div>
 			</div>
+
+			{# On wide pages, remove the dummy column #}
 			{% if not page_template or not page_template.wide_page %}
 				<div class='grid__column'><!-- dummy --></div>
 			{% endif %}
-
-			{% if page_template and page_template.gallery_page %}
-				{% include 'components/gallery.twig' %}
-			{% endif %}
 		</div>
 
+		{# Template part for the about page #}
 		{% if page_template and page_template.about_page %}
 		<div class='grid'>
 			<div class='grid__column grid__column--span-3'>
-				{% include 'components/section-partners.twig' %}
+				<div class='grid__box'>
+					{% include 'components/section-partners.twig' %}
+				</div>
 			</div>
 			<div class='grid__column'><!-- dummy --></div>
 		</div>

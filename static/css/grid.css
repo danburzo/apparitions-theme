@@ -13,14 +13,32 @@
 
 .grid__column--span-2 {
 	flex-grow: 2;
+	padding-left: 1.75rem; /* 1 x gutter */
+}
+
+.grid__column--span-2 > .grid,
+.grid__column--span-2 > .grid__box {
+	margin-left: -1.75rem; /* 1 x gutter */
 }
 
 .grid__column--span-3 {
 	flex-grow: 3;
+	padding-left: 3.5rem; /* 2 x gutter */
+}
+
+.grid__column--span-3 > .grid,
+.grid__column--span-3 > .grid__box {
+	margin-left: -3.5rem; /* 2 x gutter */
 }
 
 .grid__column--span-4 {
 	flex-grow: 4;
+	padding-left: 5.25rem; /* 3 x gutter */
+}
+
+.grid__column--span-4 > .grid,
+.grid__column--span-4 > .grid__box {
+	margin-left: -5.25rem; /* 3 x gutter */
 }
 
 /* Defining the gutter width */

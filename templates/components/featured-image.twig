@@ -13,21 +13,31 @@
 				grid__column--span-3
 			{% endif %}
 		'><!-- dummy --></div>
-		<figcaption class='grid__column featured__credits text--onum'>
-			{{ post.get_field('description') }}
-		</figcaption>
+		<div class="grid__column">
+			{# <div class="grid__box"> #}
+				<figcaption class='featured__credits text--onum'>
+					{{ post.get_field('description') }}
+				</figcaption>
+			{# </div> #}
+		</div>
 	</div>
 </figure>
 {% else %}
 <figure class='featured grid grid--bottom'>
 	<div class='grid__column grid__column--span-3'>
-		<img 
-			class='featured__image' 
-			src='{{ TimberImage(post.get_field('image')).src | resize(1600) }}'
-		/>
+		<div class='grid__box'>
+			<img 
+				class='featured__image' 
+				src='{{ TimberImage(post.get_field('image')).src | resize(1600) }}'
+			/>
+		</div>
 	</div>
-	<figcaption class='grid__column featured__credits text--onum'>
-		{{ post.get_field('description') }}
-	</figcaption>
+	<div class='grid__column'>
+		<div class='grid__box'>
+			<figcaption class='featured__credits text--onum'>
+				{{ post.get_field('description') }}
+			</figcaption>
+		</div>
+	</div>
 </figure>
 {% endif %}

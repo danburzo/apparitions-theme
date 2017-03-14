@@ -2,12 +2,29 @@
 
 {% block content %}
 	<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-		<h1>{{post.title}}</h1>
-        <p>
-            <span>By</span>
-            <a href="{{post.author.path}}"> {{ post.author.name }} </a> &bull; 
-            {{ post.post_date|date}}
-        </p>
-        {{post.content}}
+		{% if not is_home %}
+			{% include 'components/breadcrumbs-post.twig' %}
+		{% endif %}
+
+		{% include 'components/masthead-post.twig' %}
+
+		<div class='grid actual-content'>
+			<div class='grid__column grid__column--span-3' data-readmore-parent>
+				<div class='grid__box'>
+					{% if post.get_field('image') %}
+						{% 
+							include 'components/featured-image.twig' with {
+								'floating': true
+							}
+						%}
+					{% endif %}
+
+					{{post.content}}
+				</div>
+			</div>
+			<div class='grid__column'><!-- dummy --></div>
+		</div>
+
+		{% include 'components/pagination-post.twig' %}
 	</article>
 {% endblock %}

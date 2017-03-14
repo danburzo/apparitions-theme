@@ -9,25 +9,30 @@
 	<body class="{{body_class}} grid grid--collapsable">
 
 		<header class="grid__column">
-			{% block header %}
-				{% include 'components/header.twig' %}
-			{% endblock %}
+			<div class='grid__box'>
+				{% block header %}
+					{% include 'components/header.twig' %}
+				{% endblock %}
+			</div>
 		</header>
 
 		<div class='grid__column grid__column--span-4'>
-			<div class='grid grid--reverse grid--collapsable'>
-				
+			<div class='grid grid--collapsable'>
 
 				<div class='grid__column grid__column--span-3'>
-					{% include 'components/hero.twig' %}
+					<div class='grid__box'>
+						{% include 'components/hero.twig' %}
+					</div>
 				</div>
 
 				<div class='grid__column'>
-					<img class='biennale-logo' width='108' height='100' src='{{site.theme.link}}/static/svg/logos/biennale.svg'/>
+					<div class='grid__box'>
+						<img class='biennale-logo' width='108' height='100' src='{{site.theme.link}}/static/svg/logos/biennale.svg'/>
+					</div>
 				</div>
 			</div>
 
-			<section role="main">
+			<section role="main" class='grid__box'>
 				{% block title %}
 					{% if title %}
 						<h1>{{title}}</h1>
@@ -40,12 +45,11 @@
 				</div>
 			</section>
 
-			<div>
+			<div class='grid__box'>
 				{% block footer %}
 					{% include 'components/footer.twig' %}
 				{% endblock %}
 			</div>
-
 		</div>
 	</body>
 </html>
