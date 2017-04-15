@@ -1,14 +1,35 @@
 <div class='gallery'>
-	<div class='gallery__inner'>
-	{% for item in post.get_field('images') %}
-		<figure class='gallery__item'>
-			<img class='gallery__item-image' src='{{TimberImage(item.image).src}}'/>
-			<figcaption class='gallery__item-caption'>
-				{{ item.credits }}
-			</figcaption>
-		</figure>
-	{% endfor %}
+
+	<a href='#' data-galleria-role='nav-prev'>
+		<svg width='20' height='40' viewBox='0 0 20 40'>
+			<polyline points='20,0 0,20, 20,40'></polyline>
+		</svg>
+	</a>
+	<a href='#' data-galleria-role='nav-next'>
+		<svg width='20' height='40' viewBox='0 0 20 40'>
+			<polyline points='0,0 20,20, 0,40'></polyline>
+		</svg>
+	</a>
+
+	<div data-galleria-role='viewport'>
+		<div data-galleria-role='slider'>
+		{% for item in post.get_field('images') %}
+			<figure data-galleria-role='item'>
+				<picture>
+					<img src='{{ TimberImage(item.image).src | resize(1600) | toJpeg }}'/>
+				</picture>
+				<figcaption>
+					{{ item.credits }}
+				</figcaption>
+			</figure>
+		{% endfor %}
+		</div>
 	</div>
-	<div class='gallery__nav gallery__nav--prev'>&lt;</div>
-	<div class='gallery__nav gallery__nav--next'>&gt;</div>
 </div>
+
+<script type="text/javascript" src='{{site.theme.link}}/static/js/galleria.js'></script>
+<script type="text/javascript">
+	Array.prototype.slice.call(document.querySelectorAll('.gallery')).map(function(el) {
+		return new Galleria(el);
+	});
+</script>

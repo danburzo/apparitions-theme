@@ -1,16 +1,26 @@
-{% set logo = TimberImage(partner.logo).src %}
+{% set logo = TimberImage(partner.logo) %}
 
 <div class='partner'>
 	{% if partner.link %}
 	<a href='{{partner.link}}' target="_blank" class='partner__link'>
 	{% endif %}
 		{% if logo %}
-			{# {% if logo ends with ".svg" %} #}
-				{# <div class='partner__image' style='background-image:url({{ logo }})'></div> #}
-			{# {% else %} #}
-				{# <div class='partner__image' style='background-image:url({{ logo }})'></div> #}
-			{# {% endif %} #}
-			<img class='partner__image' src="{{ logo }}"/>
+			{% if logo.src ends with '.svg' %}
+				<img class='partner__image partner__image--{{ partner.aspect }}' src='{{logo.src}}'/>
+			{% else %}
+				<img class='
+					partner__image 
+					{% if partner.aspect == 'portrait' %} 
+						partner__image--portrait
+					{% elseif partner.aspect == 'landscape' %} 
+						partner__image--landscape
+					{% elseif logo.aspect < 1 %}
+						partner__image--portrait
+					{% else %}
+						partner__image--landscape
+					{% endif %}
+			' src="{{ logo.src }}"/>
+			{% endif %}
 		{% else %}
 			<span class='partner__text'>{{ partner.name }}</span>
 		{% endif %}

@@ -23,6 +23,11 @@
 						{% include 'components/gallery.twig' %}
 					{% endif %}
 
+					{# Template part for newsletter page #}
+					{% if page_template and page_template.newsletter_page %}
+						{% include 'components/newsletter-form.twig' %}
+					{% endif %}
+
 					<div data-readmore-parent>
 						{{post.content}}
 					</div>

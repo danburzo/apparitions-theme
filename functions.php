@@ -26,8 +26,8 @@ class ApparitionsSite extends TimberSite {
 
 		add_filter( 'pre_get_posts', array ( $this, 'configure_get_posts' ) );
 
-		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_nav_menus' ) );
 		add_action( 'init', array( $this, 'register_shortcodes' ) );
 		parent::__construct();
@@ -39,7 +39,7 @@ class ApparitionsSite extends TimberSite {
 	}
 
 	function register_taxonomies() {
-		//this is where you can register custom taxonomies
+		$this->register_taxonomy_members_category();
 	}
 
 	function register_nav_menus() {
@@ -51,6 +51,7 @@ class ApparitionsSite extends TimberSite {
 		add_shortcode('readmore', array($this, 'shortcode_readmore'));
 		add_shortcode('apparitions_members', array($this, 'shortcode_apparitions_members'));
 		add_shortcode('apparitions_press_releases', array($this, 'shortcode_apparitions_press_releases'));
+		add_shortcode('apparitions_logos', array($this, 'shortcode_apparitions_logos'));
 	}
 
 	function add_to_context( $context ) {
@@ -108,6 +109,8 @@ class ApparitionsSite extends TimberSite {
 			'has_archive' => false,
 			'hierarchical' => false
 		));
+
+		register_taxonomy_for_object_type('member_category', 'member');
 	}
 
 	function register_post_type_press_release() {
@@ -131,6 +134,21 @@ class ApparitionsSite extends TimberSite {
 			'public' => true,
 			'has_archive' => true,
 			'hierarchical' => false
+		));
+	}
+
+	function register_taxonomy_members_category() {
+		register_taxonomy('member_category', 'proiect', array(
+			'labels' => array(
+				'name' => 'Member Categories',
+				'singular_name' => 'Member Category'
+			),
+			'hierarchical' => true,
+			'public' => true,
+			'rewrite' => array(
+				'slug' => 'member-categories'
+			),
+			'show_in_quick_edit' => true
 		));
 	}
 
@@ -171,14 +189,39 @@ class ApparitionsSite extends TimberSite {
 	function shortcode_apparitions_members($atts = [], $content = '', $tag = '') {
 		$context = array();
 
-		$context['members'] = Timber::get_posts(array(
+		// convert atts to lowercase
+		$atts = array_change_key_case((array)$atts, CASE_LOWER);
+
+		$query = array(
 			'post_type' => 'member',
 			'orderby' => 'menu_order',
 			'order' => 'ASC'
-		));
+		);
+
+		if (array_key_exists('category', $atts)) {
+			$query['tax_query'] = array(
+				array(
+					'taxonomy' => 'member_category',
+					'field' => 'slug',
+					'terms' => $atts['category']
+				)
+			);
+		}
+
+		$context['members'] = Timber::get_posts($query);
 
 		// todo could do here 'shortcodes/' . $tag . '.twig', but ignore missing
 		return Timber::compile('shortcodes/apparitions_members.twig', $context);
+	}
+
+	function shortcode_apparitions_logos($atts = [], $content = '', $tag = '') {
+
+		$about_project_page_id = 69;
+
+		$context['reference_post'] = new TimberPost(
+			$this->object_id_in_current_language($about_project_page_id)
+		);
+		return Timber::compile('shortcodes/apparitions_logos.twig', $context);
 	}
 
 	function shortcode_apparitions_press_releases($atts = [], $content = '', $tag = '') {
@@ -213,6 +256,14 @@ class ApparitionsSite extends TimberSite {
 			return Timber\ImageHelper::resize($src, $w);
 		} else {
 			return Timber\ImageHelper::resize($src, 0, $h);
+		}
+	}
+
+	function object_id_in_current_language($id, $type = 'page') {
+		if (function_exists('icl_object_id')) {
+			return icl_object_id($id, $type, true);
+		} else {
+			return $id;
 		}
 	}
 }

@@ -7,6 +7,10 @@
         >
             &larr; {{__("Precedenta", "apparitions")}}
         </a>
+    {% else %}
+        <span class='pagination__item pagination__item--inactive'>
+            &larr; {{__("Precedenta", "apparitions")}}
+        </span>
     {% endif %}
     <ul class="pagination__list">
         {% for page in pagination.pages %}
@@ -26,6 +30,10 @@
         >
             {{__("Următoarea", "apparitions")}} &rarr;
         </a>
+    {% else %}
+        <span class='pagination__item pagination__item--inactive'>
+            {{__("Următoarea", "apparitions")}} &rarr;
+        </span>
     {% endif %}
 </div>
 {% endif %}

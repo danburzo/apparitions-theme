@@ -1,27 +1,23 @@
-{% extends "components/tease.twig" %}
-
-{% block content %}
-	<div class='member'>
-		<h2 class='member__name'>{{ member.get_field('name') }}</h2>
-		<h3 class='member__role'>{{ member.get_field('role') }}</h3>
-		<div class='grid'>
-			<div class='grid__column grid__column--span-3'>
-				<div class="grid__box">
-					<div class='member__bio'>
-						{{ member.content }}
-					</div>
-				</div>
-			</div>
-			<div class='grid__column'>
-				<div class="grid__box">
-					{% set image = member.get_field('image') %}
-					{% if image %}
-						<figure class="member__image">
-							<img src="{{ TimberImage(image).src | resize(800) }}" />
-						</figure>
-					{% endif %}
+<div class='member'>
+	<h2 class='member__name'>{{ member.get_field('name') }}</h2>
+	<h3 class='member__role'>{{ member.get_field('role') }}</h3>
+	<div class='grid'>
+		<div class='grid__column grid__column--span-3'>
+			<div class="grid__box">
+				<div class='member__bio'>
+					{{ member.content }}
 				</div>
 			</div>
 		</div>
+		<div class='grid__column'>
+			<div class="grid__box">
+				{% set image = member.get_field('image') %}
+				{% if image %}
+					<figure class="member__image">
+						<img src="{{ TimberImage(image).src | resize(800) }}" />
+					</figure>
+				{% endif %}
+			</div>
+		</div>
 	</div>
-{% endblock %}
+</div>

@@ -1,0 +1,25 @@
+{
+  "name": "apparitions-theme",
+  "version": "1.0.0",
+  "description": "WordPress theme for apparitions.ro",
+  "main": "style.css",
+  "dependencies": {
+    "postcss-cli": "^3.0.0-beta"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.7.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danburzo/apparitions-theme.git"
+  },
+  "author": "Dan Burzo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danburzo/apparitions-theme/issues"
+  },
+  "homepage": "https://github.com/danburzo/apparitions-theme#readme"
+}
