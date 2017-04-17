@@ -14,7 +14,7 @@
 				{% set image = member.get_field('image') %}
 				{% if image %}
 					<figure class="member__image">
-						<img src="{{ TimberImage(image).src | resize(800) }}" />
+						<img src="{{ TimberImage(image).src | resize(1000) }}" />
 					</figure>
 				{% endif %}
 			</div>

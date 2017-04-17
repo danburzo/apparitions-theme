@@ -1,0 +1,8 @@
+<div class='masthead masthead--member {% if tease %}masthead--tease{% endif %}'>
+	<h2 class='masthead__title text--onum'>
+		<a href="{{post.link}}">{{post.get_field('name')}}</a>
+	</h2>
+	<h3 class='masthead__subtitle'>
+		{{ post.get_field('role') }}
+	</h3>
+</div>

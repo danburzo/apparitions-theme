@@ -11,7 +11,7 @@
 	{% if mediaitem.thumb %}
 	<figure class="mediaitem__title">
 		<a href='{{mediaitem.attached_file.url}}' target="_blank">
-			<img src="{{ TimberImage(mediaitem.thumb).src | resize(450, 600) }}" />
+			<img src="{{ TimberImage(mediaitem.thumb).src | resize(600, 800) }}" />
 		</a>
 	</figure>
 	{% endif %}

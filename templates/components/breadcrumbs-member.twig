@@ -1,0 +1,9 @@
+<div class='breadcrumbs'>
+	{% if parent.parent %}
+		<a href='{{parent.parent.link}}'>{{parent.parent.title}}</a> / 
+	{% endif %}
+
+	{% if parent %}
+		<a href='{{parent.link}}'>{{parent.title}}</a>
+	{% endif %}
+</div>

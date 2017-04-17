@@ -1,4 +1,5 @@
-<div class='gallery'>
+{% set ratio = post.get_field('ratio') | default(75) %}
+<div class='gallery' style='padding-bottom: {{ ratio / 0.6666 }}%'>
 
 	<a href='#' data-galleria-role='nav-prev'>
 		<svg width='20' height='40' viewBox='0 0 20 40'>
@@ -16,7 +17,7 @@
 		{% for item in post.get_field('images') %}
 			<figure data-galleria-role='item'>
 				<picture>
-					<img src='{{ TimberImage(item.image).src | resize(1600) | toJpeg }}'/>
+					<img src='{{ TimberImage(item.image).src | resize(1800) | tojpg }}'/>
 				</picture>
 				<figcaption>
 					{{ item.credits }}

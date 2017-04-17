@@ -16,6 +16,13 @@ $context['post'] = $post;
 if ( post_password_required( $post->ID ) ) {
 	Timber::render( 'single-password.twig', $context );
 } else {
+
+	if ($post->post_type === 'member') {
+		// get the link to /organizatori or /organizers depending on the language
+		$parent_page_id = apply_filters('wpml_object_id', 76, 'page');
+		$context['parent'] = new TimberPost($parent_page_id);
+	}
+
 	Timber::render( array( 
 		'single-' . $post->ID . '.twig', 
 		'single-' . $post->post_type . '.twig', 

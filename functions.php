@@ -25,6 +25,7 @@ class ApparitionsSite extends TimberSite {
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
 
 		add_filter( 'pre_get_posts', array ( $this, 'configure_get_posts' ) );
+		add_filter( 'jpeg_quality', array($this, 'configure_jpeg_quality'));
 
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
@@ -265,6 +266,10 @@ class ApparitionsSite extends TimberSite {
 		} else {
 			return $id;
 		}
+	}
+
+	function configure_jpeg_quality() {
+		return 100;
 	}
 }
 

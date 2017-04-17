@@ -1,7 +1,17 @@
 <div class='partners'>
 {% for partner_category in post.get_field('partner_categories') %}
 	<div class='partner-category'>
+
+		{% if partner_category.title %}
 		<h3 class='partner-category__title'>{{ partner_category.title }}</h3>
+		{% endif %}
+		
+		{% if partner_category.description %}
+		<div class='partner-category__description'>
+			{{ partner_category.description }}
+		</div>
+		{% endif %}
+		
 		{% for partner in partner_category.partners %}
 			{% include 'components/tease-partner.twig' %}
 		{% endfor %}
