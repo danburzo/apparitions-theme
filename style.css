@@ -6,7 +6,7 @@
 */
 
 body {
-	font-family: "ebony", Helvetica, Arial, sans-serif;
+	font-family: "ebony", sans-serif;
 	font-size: 90%;
 	line-height: 1.7;
 	min-height: 100vh;
@@ -211,7 +211,7 @@ figure img {
 */
 
 .pagination {
-	font-family: "ebony", Helvetica, Arial, sans-serif;
+	font-family: "ebony", sans-serif;
 	padding: 1.5em 0 0;
 	border-top: 1px solid #ccc;
 	/*border-bottom: 1px solid #ccc;*/
@@ -252,7 +252,7 @@ figure img {
 .featured {
 	padding: 0;
 	margin: 1em 0;
-	font-family: "ebony", Helvetica, Arial, sans-serif;
+	font-family: "ebony", sans-serif;
 }
 
 .featured__image {}
@@ -282,7 +282,8 @@ figure img {
 	top: 0;
 	left: 1.75rem;
 	right: 0;
-	bottom: 0;}
+	bottom: 0;
+}
 
 .featured--alternate .featured__credits {
 	position: absolute;
@@ -337,7 +338,7 @@ figure img {
 /* Component: Breadcrumbs */
 
 .breadcrumbs {
-	font-family: "ebony", Helvetica, Arial, sans-serif;
+	font-family: "ebony", sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 0.15em;
 	font-weight: 300;
@@ -409,7 +410,7 @@ figure img {
 */
 
 .masthead {
-	font-family: "ebony", Helvetica, Arial, sans-serif;
+	font-family: "ebony", sans-serif;
 	margin: 1.25em 0;
 }
 
@@ -430,9 +431,6 @@ figure img {
 
 .masthead--tease {
 	font-size: 0.8em;
-}
-
-.masthead--tease .masthead__title {
 	margin-top: 0;
 }
 
@@ -445,7 +443,7 @@ figure img {
 }
 
 .tease__date {
-	font-family: "ebony", Helvetica, Arial, sans-serif;
+	font-family: "ebony", sans-serif;
 	font-size: 0.6em;
 	color: #808080; 
 	text-transform: uppercase;
@@ -494,14 +492,14 @@ figure img {
 }
 
 .media-section__title {
-	font-family: "ebony", Helvetica, Arial, sans-serif;
+	font-family: "ebony", sans-serif;
 	font-size: 1em;
 }
 
 .mediaitem {}
 
 .mediaitem__title {
-	font-family: "ebony", Helvetica, Arial, sans-serif;
+	font-family: "ebony", sans-serif;
 	font-size: 1em;
 }
 
@@ -520,7 +518,7 @@ figure img {
 }
 
 .partner-category__description {
-	font-family: "ebony", Helvetica, Arial, sans-serif;
+	font-family: "ebony", sans-serif;
 	font-size: 0.8em;
 	color: #808080;
 	padding: 1.5em 0;
@@ -551,7 +549,7 @@ figure img {
 .partner__text {
 	font-size: 1.1em;
 	line-height: 1.2em;
-	font-family: "ebony", Helvetica, Arial, sans-serif;
+	font-family: "ebony", sans-serif;
 	text-align: left;
 	display: inline-block;
 	max-width: 8em;
@@ -562,7 +560,7 @@ figure img {
 */
 
 .about-footer {
-	font-family: "ebony", Helvetica, Arial, sans-serif;
+	font-family: "ebony", sans-serif;
 	font-size: 0.8em;
 	color: #808080;
 	padding: 0.66em 0;
