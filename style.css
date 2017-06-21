@@ -262,6 +262,11 @@ figure img {
 	font-size: 0.8em;
 }
 
+.featured__link {
+	position: relative;
+	z-index: 2;
+}
+
 .featured__credits p:first-child {
 	margin-top: 0;
 }
@@ -606,7 +611,9 @@ figure img {
 	stroke: #303030;
 }
 
-.galleria__item img {}
+.galleria__item img {
+	background-color: #f9f9f9;
+}
 
 .galleria__item picture {
 	height: 66.66%;
