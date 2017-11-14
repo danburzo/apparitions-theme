@@ -1,16 +1,6 @@
 {% set featured_image_link = post.get_field('featured_image_link') %}
 {% if is_home or floating %}
 <figure class='featured featured--alternate {% if floating %}featured--floating{% endif %}'>
-	{% if featured_image_link %}
-		<a href='{{featured_image_link}}' class='featured__link'>
-	{% endif %}
-	<img 
-		class='featured__image' 
-		src='{{ TimberImage(post.get_field('image')).src | resize(1800) }}'
-	/>
-	{% if featured_image_link %}
-		</a>
-	{% endif %}
 	<div class='grid featured__credits-wrapper'>
 		<div class='
 			grid__column 
@@ -28,6 +18,16 @@
 			{# </div> #}
 		</div>
 	</div>
+	{% if featured_image_link %}
+		<a href='{{featured_image_link}}' class='featured__link'>
+	{% endif %}
+	<img 
+		class='featured__image' 
+		src='{{ TimberImage(post.get_field('image')).src | resize(1800) }}'
+	/>
+	{% if featured_image_link %}
+		</a>
+	{% endif %}
 </figure>
 {% else %}
 <figure class='featured grid grid--bottom'>

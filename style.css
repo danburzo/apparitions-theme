@@ -112,6 +112,7 @@ figure img {
 */
 
 .navbar__item.current-menu-item a,
+.current-post-ancestor > a,
 .navbar__item a:hover {
 	color: #808080;
 	text-decoration: none;
