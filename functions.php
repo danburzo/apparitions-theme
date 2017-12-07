@@ -210,6 +210,7 @@ class ApparitionsSite extends TimberSite {
 		}
 
 		$context['members'] = Timber::get_posts($query);
+		$context['layout'] = $atts['layout'];
 
 		// todo could do here 'shortcodes/' . $tag . '.twig', but ignore missing
 		return Timber::compile('shortcodes/apparitions_members.twig', $context);
@@ -222,6 +223,9 @@ class ApparitionsSite extends TimberSite {
 		$context['reference_post'] = new TimberPost(
 			$this->object_id_in_current_language($about_project_page_id)
 		);
+
+		$context['exclude_categories'] = $atts['exclude'];
+
 		return Timber::compile('shortcodes/apparitions_logos.twig', $context);
 	}
 

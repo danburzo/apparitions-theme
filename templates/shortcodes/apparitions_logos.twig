@@ -1,10 +1,11 @@
 
-<div class='grid grid--collapsabe actual-content--reverse'>
+<div class='grid grid--collapsable actual-content--reverse'>
 	<div class='grid__column grid__column--span-3'>
 		<div class='grid__box'>
 			{% 
 				include 'components/section-partners.twig' with {
-					'post': reference_post
+					'post': reference_post,
+					'exclude_categories': exclude_categories
 				}
 			%}
 		</div>

@@ -1,0 +1,29 @@
+<div class='grid grid--collapsable book'>
+	<div class='grid__column grid__column--span-3'>
+		<div class='grid__box'>
+			{% set colophon = post.get_field('colophon') %}
+			{% if colophon %}
+			<h3>{{__('Colofon', 'apparitions')}}</h3>
+			<div class='book__colophon'>
+				{{ colophon }}
+			</div>
+			{% endif %}
+		</div>
+	</div>
+	<div class='grid__column'>
+		<div class='grid__box'>
+		{% set download_file = post.get_field('download_file') %}
+		{% if download_file %}
+			{% set download_thumb = post.get_field('thumbnail') %}
+			{% if download_thumb %}
+			<h3>{{__('Descarcă publicația', 'apparitions')}}</h3>
+			<figure class='book__download'>
+				<a href='{{download_file.url}}' target="_blank">
+					<img src="{{ TimberImage(download_thumb).src | resize(600, 800) }}" />
+				</a>
+			</figure>
+			{% endif %}
+		{% endif %}
+		</div>
+	</div>
+</div>

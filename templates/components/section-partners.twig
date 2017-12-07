@@ -1,7 +1,15 @@
 <div class='partners'>
 {% for partner_category in post.get_field('partner_categories') %}
+	{% if 
+		not partner_category.title 
+		or not (
+			exclude_categories 
+			and (
+				(partner_category.title | lower) in exclude_categories
+			)
+		) 
+	%}
 	<div class='partner-category'>
-
 		{% if partner_category.title %}
 		<h3 class='partner-category__title'>{{ partner_category.title }}</h3>
 		{% endif %}
@@ -16,6 +24,7 @@
 			{% include 'components/tease-partner.twig' %}
 		{% endfor %}
 	</div>
+	{% endif %}
 {% endfor %}
 </div>
 

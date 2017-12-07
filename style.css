@@ -562,6 +562,19 @@ figure img {
 }
 
 /*
+	Component: Book
+*/
+
+.book {
+	font-size: 1.4em;
+	line-height: 1.27;
+}
+
+.book h3 {
+	font-size: 1em;
+}
+
+/*
 	Component: About Footer
 */
 

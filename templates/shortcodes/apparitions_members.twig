@@ -1,5 +1,35 @@
 {% if members %}
-	{% for member in members %}
-		{% include 'components/tease-member.twig' %}
-	{% endfor %}
+
+	{% if layout == 'compact' %} 
+		<div class='grid'>
+			<div class='grid__column grid__column--span-3'>
+			{% for row in members | batch(3) %}
+				<div class='grid'>
+				{% for member in row %}
+					<div class='grid__column'>
+						<div class='grid__box'>
+							{% include 'components/tease-member-compact.twig' %}
+						</div>
+					</div>
+				{% endfor %}
+				{# Spacing hack, to revisit someday #}
+				{% if row | length < 3 %}
+					<div class='grid__column'><!-- dummy --></div>
+				{% endif %}
+
+				{% if row | length < 2 %}
+					<div class='grid__column'><!-- dummy --></div>
+				{% endif %}
+				</div>
+			{% endfor %}
+			</div>
+			<div class='grid__column'><!-- Dummy --></div>
+		</div>
+	{% else %}
+		{% for member in members %}
+			{% include 'components/tease-member.twig' %}
+		{% endfor %}
+	{% endif %}
+
+	
 {% endif %}

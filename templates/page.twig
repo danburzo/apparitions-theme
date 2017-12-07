@@ -10,7 +10,7 @@
 			{% include 'components/featured-image.twig' %}
 		{% endif %}
 
-		<div class='grid grid--collapsabe actual-content'>
+		<div class='grid grid--collapsable actual-content'>
 			<div class='grid__column grid__column--span-3'>
 				<div class='grid__box'>
 					{# Template part for media page #}
@@ -39,6 +39,11 @@
 				<div class='grid__column'><!-- dummy --></div>
 			{% endif %}
 		</div>
+
+		{# Template part for book page #}
+		{% if page_template and page_template.book_page %}
+			{% include 'components/book.twig' %}
+		{% endif %}
 
 		{# Template part for the about page #}
 		{% if page_template and page_template.about_page %}

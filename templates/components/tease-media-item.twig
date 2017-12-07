@@ -10,9 +10,16 @@
 
 	{% if mediaitem.thumb %}
 	<figure class="mediaitem__title">
-		<a href='{{mediaitem.attached_file.url}}' target="_blank">
-			<img src="{{ TimberImage(mediaitem.thumb).src | resize(600, 800) }}" />
-		</a>
+		{% if mediaitem.attached_file %}
+			<a href='{{mediaitem.attached_file.url}}' target="_blank">
+				<img src="{{ TimberImage(mediaitem.thumb).src | resize(600, 800) }}" />
+			</a>
+		{% elseif mediaitem.link %}
+			<a href='{{mediaitem.link.link}}'>
+				<img src="{{ TimberImage(mediaitem.thumb).src | resize(600, 800) }}" />
+			</a>
+		{% endif %}
+		
 	</figure>
 	{% endif %}
 </div>
