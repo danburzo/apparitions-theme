@@ -46,7 +46,7 @@
 		{% endif %}
 
 		{# Template part for the about page #}
-		{% if page_template and page_template.about_page %}
+		{% if page_template and (page_template.about_page or page_template.book_page) %}
 		<div class='grid'>
 			<div class='grid__column grid__column--span-3'>
 				<div class='grid__box'>

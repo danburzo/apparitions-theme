@@ -28,6 +28,9 @@
 {% endfor %}
 </div>
 
+{% set disclaimer = post.get_field('disclaimer') %}
+{% if disclaimer %}
 <div class='about-footer'>
-	{{ post.get_field('disclaimer') }}
+	{{ disclaimer }}
 </div>
+{% endif %}
